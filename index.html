@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Своя игра</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🎯 СВОЯ ИГРА</h1>
+
+<div class="topButtons">
+
+<button id="fullscreenBtn">
+🖥 Полный экран
+</button>
+
+<button id="resetBtn">
+🔄 Новая игра
+</button>
+
+<button id="editorBtn">
+✏ Редактор
+</button>
+
+</div>
+
+</header>
+
+<div id="scoreBoard">
+
+<div class="team">
+
+<h2>Команда 1</h2>
+
+<div class="score" id="score1">0</div>
+
+<button onclick="changeScore(1,100)">+100</button>
+
+<button onclick="changeScore(1,-100)">-100</button>
+
+</div>
+
+<div class="team">
+
+<h2>Команда 2</h2>
+
+<div class="score" id="score2">0</div>
+
+<button onclick="changeScore(2,100)">+100</button>
+
+<button onclick="changeScore(2,-100)">-100</button>
+
+</div>
+
+<div class="team">
+
+<h2>Команда 3</h2>
+
+<div class="score" id="score3">0</div>
+
+<button onclick="changeScore(3,100)">+100</button>
+
+<button onclick="changeScore(3,-100)">-100</button>
+
+</div>
+
+<div class="team">
+
+<h2>Команда 4</h2>
+
+<div class="score" id="score4">0</div>
+
+<button onclick="changeScore(4,100)">+100</button>
+
+<button onclick="changeScore(4,-100)">-100</button>
+
+</div>
+
+</div>
+
+<div id="gameBoard">
+
+</div>
+
+<div id="questionModal" class="hidden">
+
+<div class="modalContent">
+
+<h2 id="questionTitle"></h2>
+
+<div id="questionText"></div>
+
+<div id="mediaContainer"></div>
+
+<button id="showAnswer">
+
+Показать ответ
+
+</button>
+
+<div id="answerText"></div>
+
+<button id="closeQuestion">
+
+Закрыть
+
+</button>
+
+</div>
+
+</div>
+
+<div id="editorModal" class="hidden">
+
+<div class="editorWindow">
+
+<h2>
+
+Редактор вопросов
+
+</h2>
+
+<textarea id="jsonEditor"></textarea>
+
+<div class="editorButtons">
+
+<button id="saveJson">
+
+Сохранить
+
+</button>
+
+<button id="downloadJson">
+
+Скачать JSON
+
+</button>
+
+<button id="uploadJson">
+
+Загрузить JSON
+
+</button>
+
+<input
+type="file"
+id="jsonFile"
+accept=".json"
+hidden>
+
+<button id="closeEditor">
+
+Закрыть
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="timer">
+
+30
+
+</div>
+
+<audio id="openSound"></audio>
+
+<audio id="answerSound"></audio>
+
+<audio id="timerSound"></audio>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

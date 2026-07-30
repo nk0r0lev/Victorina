@@ -1,0 +1,795 @@
+/* ===========================
+   ОСНОВНЫЕ НАСТРОЙКИ
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#02183b;
+    color:white;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+header{
+
+    height:90px;
+
+    background:#042d63;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.5);
+
+    z-index:5;
+
+}
+
+header h1{
+
+font-size:34px;
+
+letter-spacing:3px;
+
+color:#ffd000;
+
+text-shadow:2px 2px 8px black;
+
+}
+
+.topButtons{
+
+display:flex;
+
+gap:10px;
+
+}
+
+.topButtons button{
+
+padding:12px 20px;
+
+border:none;
+
+border-radius:10px;
+
+background:#ffbf00;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:bold;
+
+transition:.25s;
+
+}
+
+.topButtons button:hover{
+
+transform:scale(1.05);
+
+background:white;
+
+}
+
+/* ===========================
+   SCOREBOARD
+=========================== */
+
+#scoreBoard{
+
+height:130px;
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:12px;
+
+padding:12px;
+
+background:#012454;
+
+}
+
+.team{
+
+background:#05357b;
+
+border-radius:12px;
+
+padding:10px;
+
+text-align:center;
+
+box-shadow:0 0 12px rgba(0,0,0,.4);
+
+}
+
+.team h2{
+
+margin-bottom:8px;
+
+}
+
+.score{
+
+font-size:42px;
+
+font-weight:bold;
+
+margin:10px 0;
+
+color:#ffd000;
+
+}
+
+.team button{
+
+padding:8px 15px;
+
+margin:2px;
+
+cursor:pointer;
+
+border:none;
+
+border-radius:6px;
+
+font-weight:bold;
+
+}
+
+.team button:hover{
+
+transform:scale(1.08);
+
+}
+
+/* ===========================
+   ИГРОВОЕ ПОЛЕ
+=========================== */
+
+#gameBoard{
+
+flex:1;
+
+display:grid;
+
+grid-template-columns:repeat(20,100px);
+overflow-x:auto;
+
+grid-template-rows:repeat(6,1fr);
+
+gap:4px;
+
+padding:4px;
+
+background:#02183b;
+
+overflow:auto;
+
+}
+
+/* ===========================
+   КАРТОЧКИ
+=========================== */
+
+.topic{
+
+background:#063f94;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:6px;
+
+text-align:center;
+
+font-size:14px;
+
+font-weight:bold;
+
+border-radius:6px;
+
+border:2px solid #0d5ed8;
+
+}
+
+.question{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+cursor:pointer;
+
+background:#0b57d0;
+
+border-radius:6px;
+
+font-size:32px;
+
+font-weight:bold;
+
+color:#ffd000;
+
+transition:.2s;
+
+user-select:none;
+
+}
+
+.question:hover{
+
+background:#166df5;
+
+transform:scale(1.05);
+
+}
+
+.question.used{
+
+background:#111;
+
+color:#444;
+
+cursor:not-allowed;
+
+transform:none;
+
+}
+
+/* ===========================
+   МОДАЛЬНОЕ ОКНО
+=========================== */
+
+#questionModal{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.9);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:1000;
+
+}
+
+.hidden{
+
+display:none !important;
+
+}
+
+.modalContent{
+
+width:90%;
+
+max-width:1000px;
+
+background:#042d63;
+
+padding:40px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 0 40px black;
+
+animation:showQuestion .35s;
+
+}
+
+@keyframes showQuestion{
+
+from{
+
+transform:scale(.7);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+#questionTitle{
+
+font-size:34px;
+
+margin-bottom:25px;
+
+color:#ffd000;
+
+}
+
+#questionText{
+
+font-size:30px;
+
+line-height:1.6;
+
+margin-bottom:30px;
+
+min-height:150px;
+
+}
+
+/* ===========================
+   КНОПКИ МОДАЛЬНОГО ОКНА
+=========================== */
+
+#showAnswer,
+#closeQuestion{
+
+    margin:15px;
+
+    padding:15px 35px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#showAnswer{
+
+    background:#ffd000;
+
+    color:#000;
+
+}
+
+#showAnswer:hover{
+
+    background:#fff;
+
+    transform:scale(1.05);
+
+}
+
+#closeQuestion{
+
+    background:#1565c0;
+
+    color:white;
+
+}
+
+#closeQuestion:hover{
+
+    background:#1976d2;
+
+    transform:scale(1.05);
+
+}
+
+#answerText{
+
+    display:none;
+
+    margin-top:30px;
+
+    font-size:28px;
+
+    color:#8cff8c;
+
+    line-height:1.5;
+
+}
+
+/* ===========================
+   МЕДИА
+=========================== */
+
+#mediaContainer{
+
+    margin:25px auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+#mediaContainer img{
+
+    max-width:90%;
+
+    max-height:450px;
+
+    border-radius:12px;
+
+}
+
+#mediaContainer video{
+
+    max-width:90%;
+
+}
+
+#mediaContainer audio{
+
+    width:90%;
+
+}
+
+/* ===========================
+   ТАЙМЕР
+=========================== */
+
+#timer{
+
+    position:fixed;
+
+    top:25px;
+
+    right:25px;
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:#d50000;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    box-shadow:0 0 20px rgba(0,0,0,.5);
+
+    z-index:9999;
+
+    animation:none;
+
+}
+
+.timerWarning{
+
+    animation:pulse .8s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================
+   РЕДАКТОР
+=========================== */
+
+#editorModal{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.9);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:5000;
+
+}
+
+.editorWindow{
+
+    width:90%;
+
+    height:90%;
+
+    background:#042d63;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.editorWindow h2{
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+    color:#ffd000;
+
+}
+
+#jsonEditor{
+
+    flex:1;
+
+    resize:none;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    font-size:15px;
+
+    font-family:Consolas, monospace;
+
+    background:#0b1f42;
+
+    color:#fff;
+
+    outline:none;
+
+}
+
+.editorButtons{
+
+    margin-top:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.editorButtons button{
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    background:#ffd000;
+
+}
+
+.editorButtons button:hover{
+
+    background:white;
+
+}
+
+/* ===========================
+   СКРОЛЛБАР
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#0c5eff;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#02183b;
+
+}
+
+/* ===========================
+   АДАПТИВНОСТЬ
+=========================== */
+
+@media(max-width:1200px){
+
+    #gameBoard{
+
+        font-size:12px;
+
+    }
+
+    .question{
+
+        font-size:22px;
+
+    }
+
+    header h1{
+
+        font-size:24px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    header{
+
+        flex-direction:column;
+
+        height:auto;
+
+        gap:10px;
+
+    }
+
+    #scoreBoard{
+
+        grid-template-columns:repeat(2,1fr);
+
+        height:auto;
+
+    }
+
+    .score{
+
+        font-size:30px;
+
+    }
+
+    .modalContent{
+
+        padding:20px;
+
+    }
+
+    #questionText{
+
+        font-size:22px;
+
+    }
+
+    #questionTitle{
+
+        font-size:26px;
+
+    }
+
+    #timer{
+
+        width:55px;
+
+        height:55px;
+
+        font-size:24px;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .topButtons{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    #gameBoard{
+
+        grid-template-columns:repeat(10,1fr);
+
+    }
+
+    .topic{
+
+        font-size:11px;
+
+    }
+
+    .question{
+
+        font-size:18px;
+
+    }
+
+}
