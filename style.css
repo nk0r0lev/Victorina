@@ -147,25 +147,25 @@ color:#ffd000;
 }
 
 .team button{
-
-padding:8px 15px;
-
-margin:2px;
-
-cursor:pointer;
-
-border:none;
-
-border-radius:6px;
-
-font-weight:bold;
-
+    display:inline-block;
+    padding:8px 15px;
+    margin:2px;
+    cursor:pointer;
+    border:none;
+    border-radius:6px;
+    font-weight:bold;
+    font-size:16px;
+    background:#ffd000;
+    color:#000;
+    visibility:visible;
+    opacity:1;
+    position:relative;
+    z-index:10;
 }
 
 .team button:hover{
-
-transform:scale(1.08);
-
+    transform:scale(1.08);
+    background:#fff;
 }
 
 /* ===========================
