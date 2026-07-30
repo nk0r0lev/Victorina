@@ -15,7 +15,7 @@ let gameData = [];
 
 let openedQuestions = {};
 
-let scores = [0, 0, 0, 0];
+let scores = [0, 0, 0];
 
 let currentQuestion = null;
 
@@ -629,7 +629,7 @@ function updateScores(){
 
     for(
         let i = 1;
-        i <= 4;
+        i <= 3;
         i++
     ){
 
@@ -723,7 +723,7 @@ if(resetButton){
 
         openedQuestions = {};
 
-        scores = [0,0,0,0];
+        scores = [0,0,0];
 
 
 
@@ -870,7 +870,7 @@ if(resetButton){
 
         openedQuestions = {};
 
-        scores = [0,0,0,0];
+        scores = [0,0,0];
 
 
 
